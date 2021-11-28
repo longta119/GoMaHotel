@@ -1,0 +1,76 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<style>
+    img {
+        width: 100%;
+        height: auto;
+    }
+</style>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+    <ul class="carousel-indicators">
+        <li data-target="myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="myCarousel" data-slide-to="1"></li>
+        <li data-target="myCarousel" data-slide-to="2"></li>
+        <li data-target="myCarousel" data-slide-to="3"></li>
+    </ul>
+
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/images/Buildings.jpg" alt="Buildings" />
+            <div class="carousel-caption">
+                <h2 style="color: white;">Buildings</h2>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/Dinings.jpg" alt="Dinings" />
+            <div class="carousel-caption">
+                <h2 style="color: white;">Dinings</h2>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/Pools.jpg" alt="Pools" />
+            <div class="carousel-caption">
+                <h2 style="color: white;">Pool</h2>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/Rooms.jpg" alt="Rooms" />
+            <div class="carousel-caption">
+                <h2 style="color: white;">Rooms</h2>
+            </div>
+        </div>
+    </div>
+
+    <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+</div>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Welcome to Goma Hotel</h2>
+            <p>
+                If you’re looking for a small hotel in Goma, look no further than Goma Hotel.
+                Free wifi is offered to guests, and rooms at Goma Hotel offer a minibar and air conditioning.
+                The staff at Go Hotel looks forward to serving you during your upcoming visit.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <ul>
+                <li><a href="https://www.weatherzone.com.au/nsw/mid-north-coast/coffs-harbour">Coffs Harbor weather</a></li>
+                <li><a href="https://www.clarence.nsw.gov.au/Home">Clarence Village Council</a></li>
+                <li><a href="https://www.agriculture.gov.au/abares/research-topics/aboutmyregion/mid-north-coast">Mid North Coast</a></li>
+                <li><a asp-page="/Privacy">Privacy</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+﻿@page
+@model HotelOne20251619.Pages.Bookings.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Booking</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="bookingModel.RoomID" class="control-label"></label>
+                <select asp-for="bookingModel.RoomID" class="form-control" asp-items="ViewBag.RoomID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="bookingModel.CheckIn" class="control-label"></label>
+                <input asp-for="bookingModel.CheckIn" class="form-control" />
+                <span asp-validation-for="bookingModel.CheckIn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="bookingModel.CheckOut" class="control-label"></label>
+                <input asp-for="bookingModel.CheckOut" class="form-control" />
+                <span asp-validation-for="bookingModel.CheckOut" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@if (ViewData["SuccessDB"] == "Wrong Date")
+{
+<hr />
+<h5>Please check your date. You can't check out before you check in.</h5>
+}
+else if (ViewData["SuccessDB"] == "success")
+{
+    <hr />
+    <h5>
+        Thanks, @ViewData["cusFullName"]. You have successfully booked <strong>@ViewData["NoOfNight"]</strong> from <strong>@Model.bookingModel.CheckIn</strong> to <strong>@Model.bookingModel.CheckOut</strong> at room
+        <strong>@Model.bookingModel.RoomID</strong> on level <strong>@ViewData["Level"]</strong> for the total of <strong>$@ViewData["TotalCost"]</strong>.
+    </h5>
+}
+else if (ViewData["SuccessDB"] == "fail")
+{
+    <hr />
+    <h5>Sorry, your chosen booking is unavailable. Please make a different one.</h5>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

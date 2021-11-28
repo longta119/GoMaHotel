@@ -1,0 +1,68 @@
+﻿@page
+@model HotelOne20251619.Pages.Bookings.IndexModel
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking[0].TheCustomer.Surname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking[0].TheCustomer.GivenName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking[0].RoomID)
+            </th>
+            <th>
+                <a asp-page="Index" asp-route-sortorder="@ViewData["NextInDateOrder"]">
+                    @Html.DisplayNameFor(model => model.Booking[0].CheckIn)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking[0].CheckOut)
+            </th>
+            <th>
+                <a asp-page="Index" asp-route-sortorder="@ViewData["NextCostOrder"]">
+                    @Html.DisplayNameFor(model => model.Booking[0].Cost)
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Booking.Where(n => n.CustomerEmail == UserManager.GetUserName(User)))
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TheCustomer.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TheCustomer.GivenName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckIn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckOut)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

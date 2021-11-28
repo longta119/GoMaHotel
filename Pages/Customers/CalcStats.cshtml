@@ -1,0 +1,66 @@
+﻿@page
+@model HotelOne20251619.Pages.Customers.CalcStatsModel
+@{
+    ViewData["Title"] = "CalcStatsModel";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>Customer distribution with respect to postcodes</h2>
+<br />
+
+<div>
+    @* .table is a Bootstrap class giving table styles *@
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.PostcodeStats[0].PostCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.PostcodeStats[0].numOfCustomer)
+            </th>
+        </tr>
+
+        @foreach (var item in Model.PostcodeStats)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.numOfCustomer)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+<h2>Booking distribution with respect to rooms</h2>
+<br />
+
+<div>
+    @* .table is a Bootstrap class giving table styles *@
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.RoomStats[0].RoomID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.RoomStats[0].numOfBooking)
+            </th>
+        </tr>
+
+        @foreach (var item in Model.RoomStats)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.numOfBooking)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+
