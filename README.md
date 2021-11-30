@@ -74,7 +74,6 @@ admin@gomahotel.com | P@ssw0rd
 |6.  |customer6@mail.com  | P@ssw0rd|
 |7.  |customer7@mail.com  | P@ssw0rd|
 |8.  |customer8@mail.com  | P@ssw0rd|
-|3.  |customer3@mail.com  | P@ssw0rd|
 
 
 ## Contributing
