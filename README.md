@@ -1,4 +1,4 @@
-# GoMaHotel
+# GoMa Hotel
 A basic hotel website built by ASP.NET Core framework.
 
 
